@@ -1,0 +1,74 @@
+[gd_scene load_steps=10 format=3 uid="uid://dsjtxwvylhl8s"]
+
+[ext_resource type="Script" path="res://player.gd" id="1_clegs"]
+[ext_resource type="Texture2D" uid="uid://bqhh8dsorjl3k" path="res://6pixels.png" id="2_4yvh2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5xykp"]
+atlas = ExtResource("2_4yvh2")
+region = Rect2(254, 0, 127, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyqjw"]
+atlas = ExtResource("2_4yvh2")
+region = Rect2(381, 0, 127, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xa8oa"]
+atlas = ExtResource("2_4yvh2")
+region = Rect2(508, 0, 127, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8ibq"]
+atlas = ExtResource("2_4yvh2")
+region = Rect2(0, 0, 127, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_clxox"]
+atlas = ExtResource("2_4yvh2")
+region = Rect2(127, 0, 127, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p4s0y"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5xykp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyqjw")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xa8oa")
+}],
+"loop": true,
+"name": &"jump",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8ibq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_clxox")
+}],
+"loop": true,
+"name": &"move",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfoh5"]
+size = Vector2(16, 16)
+
+[node name="player_6pixel" type="CharacterBody2D"]
+script = ExtResource("1_clegs")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-2.38419e-07, 9.53674e-07)
+scale = Vector2(0.125984, 0.125)
+sprite_frames = SubResource("SpriteFrames_p4s0y")
+animation = &"idle"
+frame_progress = 0.0933255
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_lfoh5")
